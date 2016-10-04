@@ -30,4 +30,5 @@ for _ in range(n):
 X_test = vector_text.transform(X_test)
 
 y_pred = c.predict(X_test)
-for p in y_pred
+for p in y_pred:
+    print(p)
