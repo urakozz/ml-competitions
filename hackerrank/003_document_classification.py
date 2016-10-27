@@ -1,10 +1,7 @@
-# https://www.hackerrank.com/challenges/document-classification
-
-__author__ = 'yury.kozyrev'
-
 import numpy as np
 from sklearn import feature_extraction
-from sklearn import svm
+#from sklearn import svm
+from sklearn import linear_model
 # from sklearn.metrics import accuracy_score
 
 X,y = [],[]
@@ -20,7 +17,8 @@ X, y = np.array(X), np.array(y)
 vector_text = feature_extraction.text.TfidfVectorizer(min_df=5)
 X = vector_text.fit_transform(X)
 
-c = svm.SVC(kernel='linear')
+# c = svm.SVC(kernel='linear', C=10)
+c = linear_model.SGDClassifier(loss="hinge", penalty="l2")
 c.fit(X, y)
 
 n = int(input())
